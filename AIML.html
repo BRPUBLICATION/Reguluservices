@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulus Services - AI & ML Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2962ff;
+            --secondary: #00b0ff;
+            --accent: #00e5ff;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gradient: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .service-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(41,98,255,0.3), rgba(41,98,255,0.7));
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .service-list {
+            list-style-type: none;
+        }
+        
+        .service-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-list li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        .why-us {
+            background: var(--light);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+        
+        .why-us-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-info {
+            margin: 2rem 0;
+        }
+        
+        .social-links {
+            margin: 2rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">REGULUS</div>
+            <h1>AI & Machine Learning Solutions</h1>
+            <p class="tagline">Harness the power of artificial intelligence to transform your business</p>
+            <a href="#contact" class="cta-button">Schedule Consultation</a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">Our AI/ML Services</h2>
+        
+        <div class="services-grid">
+            <!-- Predictive Analytics -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Predictive Analytics & Forecasting</h3>
+                    <ul class="service-list">
+                        <li>Predictive models to forecast future outcomes</li>
+                        <li>Demand forecasting for inventory optimization</li>
+                        <li>Trend analysis for strategic planning</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- NLP -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Natural Language Processing</h3>
+                    <ul class="service-list">
+                        <li>Text analysis & sentiment analysis</li>
+                        <li>Chatbot development for customer support</li>
+                        <li>Language translation systems</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Computer Vision -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Computer Vision</h3>
+                    <ul class="service-list">
+                        <li>Image recognition systems</li>
+                        <li>Object detection in images/videos</li>
+                        <li>Facial recognition technology</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Speech -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1603202662742-3490a4c60a1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Speech Recognition</h3>
+                    <ul class="service-list">
+                        <li>Speech-to-text applications</li>
+                        <li>Voice-controlled interfaces</li>
+                        <li>Audio transcription services</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- ML/DL -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Machine & Deep Learning</h3>
+                    <ul class="service-list">
+                        <li>Custom ML model development</li>
+                        <li>Deep learning for complex tasks</li>
+                        <li>Neural network architectures</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Automation -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">AI Automation</h3>
+                    <ul class="service-list">
+                        <li>Process automation solutions</li>
+                        <li>Supply chain optimization</li>
+                        <li>Workflow efficiency improvements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="why-us">
+        <div class="why-us-container">
+            <h2 class="section-title">Why Choose Regulus?</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">Expert Data Scientists</h3>
+                    <p>Our team holds advanced degrees in AI/ML with years of industry experience.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="feature-title">End-to-End Solutions</h3>
+                    <p>From concept to deployment, we handle every aspect of your AI project.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Proven Results</h3>
+                    <p>We deliver measurable improvements in efficiency, accuracy, and ROI.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Ethical AI</h3>
+                    <p>We prioritize fairness, transparency, and responsible AI practices.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2 class="section-title">Additional Capabilities</h2>
+        
+        <div class="services-grid">
+            <!-- Data Science -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Data Science Services</h3>
+                    <ul class="service-list">
+                        <li>Data strategy consulting</li>
+                        <li>Machine learning engineering</li>
+                        <li>Data pipeline architecture</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Model Deployment -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Model Deployment</h3>
+                    <ul class="service-list">
+                        <li>Production deployment</li>
+                        <li>Performance monitoring</li>
+                        <li>Continuous improvement</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Advanced Techniques -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Advanced Techniques</h3>
+                    <ul class="service-list">
+                        <li>Transfer learning</li>
+                        <li>Reinforcement learning</li>
+                        <li>Generative models</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Ready to Implement AI in Your Business?</h2>
+            <div class="contact-info">
+                <p>Email: ai@regulusservices.com</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Address: 123 Tech Park Drive, Silicon Valley, CA</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 Regulus Services. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
