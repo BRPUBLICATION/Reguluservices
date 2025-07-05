@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulus Services - Blockchain & Cybersecurity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2b5876;
+            --secondary: #4e4376;
+            --accent: #00d2ff;
+            --light: #f8f9fa;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --gradient: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,210,255,0.4);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,210,255,0.2);
+            border-color: var(--accent);
+        }
+        
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .service-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(43,88,118,0.3), rgba(43,88,118,0.7));
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .service-list {
+            list-style-type: none;
+        }
+        
+        .service-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-list li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .why-us {
+            background: rgba(0,0,0,0.3);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-top: 1px solid rgba(0,210,255,0.2);
+            border-bottom: 1px solid rgba(0,210,255,0.2);
+        }
+        
+        .why-us-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(0,210,255,0.2);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-info {
+            margin: 2rem 0;
+        }
+        
+        .social-links {
+            margin: 2rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            background: rgba(0,210,255,0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0.2rem;
+            border: 1px solid var(--accent);
+        }
+        
+        .tech-badges {
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">REGULUS</div>
+            <h1>Blockchain & Cybersecurity Solutions</h1>
+            <p class="tagline">Secure your digital assets with cutting-edge blockchain and cybersecurity technologies</p>
+            <a href="#contact" class="cta-button">Request Security Audit</a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">Blockchain Services</h2>
+        
+        <div class="services-grid">
+            <!-- Blockchain Development -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1620343804949-7c1778a166b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1464&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Blockchain Development</h3>
+                    <ul class="service-list">
+                        <li>Blockchain consulting & strategy</li>
+                        <li>Smart contract development</li>
+                        <li>Custom blockchain solutions</li>
+                        <li>Supply chain applications</li>
+                    </ul>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Ethereum</span>
+                        <span class="tech-badge">Hyperledger</span>
+                        <span class="tech-badge">Solana</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blockchain Security -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Blockchain Security</h3>
+                    <ul class="service-list">
+                        <li>Smart contract auditing</li>
+                        <li>Blockchain penetration testing</li>
+                        <li>Cryptographic security reviews</li>
+                        <li>Consensus mechanism analysis</li>
+                    </ul>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Auditing</span>
+                        <span class="tech-badge">Pen Testing</span>
+                        <span class="tech-badge">Cryptography</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Identity Management -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1614064641938-3bbee52942e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Identity Management</h3>
+                    <ul class="service-list">
+                        <li>Decentralized identity solutions</li>
+                        <li>Blockchain-based authentication</li>
+                        <li>KYC/AML compliance systems</li>
+                        <li>SSO integration</li>
+                    </ul>
+                    <div class="tech-badges">
+                        <span class="tech-badge">DID</span>
+                        <span class="tech-badge">ZK Proofs</span>
+                        <span class="tech-badge">Biometrics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2 class="section-title">Cybersecurity Services</h2>
+        
+        <div class="services-grid">
+            <!-- Security Testing -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Security Testing</h3>
+                    <ul class="service-list">
+                        <li>Penetration testing</li>
+                        <li>Vulnerability assessments</li>
+                        <li>Red team exercises</li>
+                        <li>Social engineering tests</li>
+                    </ul>
+                    <div class="tech-badges">
+                        <span class="tech-badge">OWASP</span>
+                        <span class="tech-badge">NIST</span>
+                        <span class="tech-badge">MITRE</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Data Protection -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Data Protection</h3>
+                    <ul class="service-list">
+                        <li>Encryption solutions</li>
+                        <li>Data loss prevention</li>
+                        <li>Backup & recovery</li>
+                        <li>GDPR/HIPAA compliance</li>
+                    </ul>
+                    <div class="tech-badges">
+                        <span class="tech-badge">AES-256</span>
+                        <span class="tech-badge">PKI</span>
+                        <span class="tech-badge">HSM</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Network Security -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Network Security</h3>
+                    <ul class="service-list">
+                        <li>Firewall configuration</li>
+                        <li>Intrusion detection/prevention</li>
+                        <li>SIEM implementation</li>
+                        <li>Zero trust architecture</li>
+                    </ul>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Cisco</span>
+                        <span class="tech-badge">Palo Alto</span>
+                        <span class="tech-badge">Fortinet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="why-us">
+        <div class="why-us-container">
+            <h2 class="section-title">Our Security Advantage</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Certified Experts</h3>
+                    <p>Our team holds CISSP, CISA, OSCP and blockchain security certifications.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="feature-title">Military-Grade Security</h3>
+                    <p>We implement defense-grade security protocols for maximum protection.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">24/7 Monitoring</h3>
+                    <p>Round-the-clock security operations center with real-time threat detection.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="feature-title">Compliance Ready</h3>
+                    <p>Solutions designed to meet GDPR, HIPAA, SOC2, and other regulations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2 class="section-title">Additional Cybersecurity Services</h2>
+        
+        <div class="services-grid">
+            <!-- Cloud Security -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Cloud Security</h3>
+                    <ul class="service-list">
+                        <li>Cloud security architecture</li>
+                        <li>CSPM implementation</li>
+                        <li>Container security</li>
+                        <li>Serverless security</li>
+                    </ul>
+                    <div class="tech-badges">
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">Azure</span>
+                        <span class="tech-badge">GCP</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Incident Response -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Incident Response</h3>
+                    <ul class="service-list">
+                        <li>Breach investigation</li>
+                        <li>Forensic analysis</li>
+                        <li>Threat containment</li>
+                        <li>Recovery planning</li>
+                    </ul>
+                    <div class="tech-badges">
+                        <span class="tech-badge">DFIR</span>
+                        <span class="tech-badge">EDR</span>
+                        <span class="tech-badge">XDR</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Security Training -->
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Security Training</h3>
+                    <ul class="service-list">
+                        <li>Security awareness</li>
+                        <li>Phishing simulations</li>
+                        <li>Secure coding</li>
+                        <li>Blockchain security</li>
+                    </ul>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Training</span>
+                        <span class="tech-badge">Workshops</span>
+                        <span class="tech-badge">Cert Prep</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Secure Your Digital Assets Today</h2>
+            <div class="contact-info">
+                <p>Email: security@regulusservices.com</p>
+                <p>Phone: (555) 987-6543</p>
+                <p>PGP Key: 0x1A2B3C4D5E6F7890</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-keybase"></i></a>
+            </div>
+            <p>&copy; 2023 Regulus Security Services. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
